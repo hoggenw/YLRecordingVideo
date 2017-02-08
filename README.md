@@ -22,7 +22,31 @@ pod "YLRecordingVideo"
 
 ## Author
 
-hoggenw, 253192463@qq.com
+hoggenw
+
+## 使用方法
+```
+        //管理初始化
+        let manager = YLRecordVideoManager.shareManager()
+        //结果代理
+        manager.delegate = self
+        //选择质量模式（可不选）
+        manager.videoQuality = .normalQuality
+        //设置录制时间（默认10秒，可不选）
+        manager.recordTotalTime = 10
+        //展示录制页面
+        manager.showRecordView(viewController: self)
+```
+结果返回代理
+
+```
+extension ViewController: YLRecordVideoChoiceDelegate {
+    func choiceVideoWith(path: String) {
+        print("选择视频路径为：\(path)")
+    }
+}
+```
+
 
 ## License
 
