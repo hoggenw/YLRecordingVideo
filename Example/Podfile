@@ -1,0 +1,6 @@
+use_frameworks!
+target 'YLRecordingVideo_Tests' do
+  pod 'YLRecordingVideo', :path => '../'
+  
+  
+end
