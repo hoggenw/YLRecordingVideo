@@ -1,5 +1,5 @@
 PODS:
-  - YLRecordingVideo (0.1.1)
+  - YLRecordingVideo (0.1.2)
 
 DEPENDENCIES:
   - YLRecordingVideo (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  YLRecordingVideo: c8da368ff122fe2af7793f57268f0e7d33b15866
+  YLRecordingVideo: ae733f92c7bc724287210d9cae95407de6fc8cee
 
-PODFILE CHECKSUM: f1227d6b10058924a64e6f42ef013ad9f93d84f8
+PODFILE CHECKSUM: ab40a69d63e5b67c4049291aab3b71866fd547c6
 
 COCOAPODS: 1.2.0

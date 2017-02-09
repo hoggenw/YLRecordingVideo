@@ -15,7 +15,7 @@ public class YLRecordVideoManager: NSObject {
     public var recordTotalTime: Float64 = 10
 
     public static let recordVideoManager = YLRecordVideoManager()
-    private var recordViewController = YLRecordVideoViewController()
+    private var recordViewController: YLRecordVideoViewController?
     public var delegate: YLRecordVideoChoiceDelegate?
     
     override init() {
@@ -29,10 +29,11 @@ public class YLRecordVideoManager: NSObject {
     
     //显示录制界面
     public func showRecordView(viewController: UIViewController) {
-        recordViewController.videoQuality = videoQuality
-        recordViewController.totalSeconds = recordTotalTime
-        recordViewController.delegate = self
-        viewController.navigationController?.pushViewController(recordViewController, animated: true)
+        recordViewController = YLRecordVideoViewController()
+        recordViewController?.videoQuality = videoQuality
+        recordViewController?.totalSeconds = recordTotalTime
+        recordViewController?.delegate = self
+        viewController.navigationController?.pushViewController(recordViewController!, animated: true)
     }
     
     //MARK: 删除录制视频

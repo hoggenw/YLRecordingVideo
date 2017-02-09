@@ -100,7 +100,7 @@ open class YLRecordVideoViewController: UIViewController {
         
         initUI()
         setupCaptureSession()
-        setupAssetWriter()
+        
     }
 
     func initUI() {
@@ -137,22 +137,6 @@ open class YLRecordVideoViewController: UIViewController {
     }
     
     func setupCaptureSession () {
-        switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) {
-        case .authorized:
-            setupResult = .success
-        case .notDetermined:
-            sessionQueue.suspend()
-            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { [weak self] (success) in
-                if !success {
-                    self?.setupResult = .unAuthorized
-                }
-                self?.sessionQueue.resume()
-            })
-            
-        
-        default:
-            setupResult = .unAuthorized
-        }
         captureSession.beginConfiguration()
         captureSession.sessionPreset = sessionPreset
         //添加视频、音频输入设备
@@ -166,6 +150,28 @@ open class YLRecordVideoViewController: UIViewController {
         captureSession.addOutput(fileOutput)
         captureSession.sessionPreset = sessionPreset
         captureSession.commitConfiguration()
+        
+        switch AVCaptureDevice.authorizationStatus(forMediaType: AVMediaTypeVideo) {
+        case .authorized:
+            setupResult = .success
+            setupAssetWriter()
+        case .notDetermined:
+            sessionQueue.suspend()
+            AVCaptureDevice.requestAccess(forMediaType: AVMediaTypeVideo, completionHandler: { [weak self] (success) in
+                if !success {
+                    self?.setupResult = .unAuthorized
+                }else {
+                    self?.setupResult = .success
+                }
+                self?.sessionQueue.resume()
+                self?.setupAssetWriter()
+            })
+            
+        
+        default:
+            setupResult = .unAuthorized
+        }
+
         
     }
     
