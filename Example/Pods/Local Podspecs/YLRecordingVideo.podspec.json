@@ -1,6 +1,6 @@
 {
   "name": "YLRecordingVideo",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "summary": "短视频录制",
   "description": "一个短视频的录制，目前仅可单视频的录制与选取",
   "homepage": "https://github.com/hoggenw/YLRecordingVideo",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/hoggenw/YLRecordingVideo.git",
-    "tag": "0.1.2"
+    "tag": "0.1.3"
   },
   "platforms": {
     "ios": "8.0"
