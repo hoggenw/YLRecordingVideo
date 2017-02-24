@@ -27,7 +27,7 @@ public protocol YLRecordVideoControlDelegate: class {
     func choiceVideoDelegate()
 }
 
-public protocol YLRecordVideoChoiceDelegate {
+public protocol YLRecordVideoChoiceDelegate: class {
     func choiceVideoWith(path: String)
 }
 
